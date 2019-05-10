@@ -13,15 +13,14 @@
         <!--配置连接池属性-->
         <property name="driverClass" value="${driver}"/>
         <property name="jdbcUrl" value="${url}"/>
-        <property name="user" value="{username}"/>
+        <property name="user" value="${user}"/>
         <property name="password" value="${password}"/>
 
         <!--c3p0连接池的私有属性-->
         <property name="maxPoolSize" value="30"/>
         <property name="minPoolSize" value="10"/>
         <property name="autoCommitOnClose" value="false"/>
-        <!--获取连接超时时间-->
-        <property name="checkoutTimeout" value="1000"/>
+
         <!--当获取连接失败重试次数-->
         <property name="acquireRetryAttempts" value="2"/>
     </bean>
