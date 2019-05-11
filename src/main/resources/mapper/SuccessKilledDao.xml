@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.seckill.dao.SeckillDao">
+<mapper namespace="org.seckill.dao.SuccessKilledDao">
 
     <insert id="insertSuccessKilled">
         insert ignore into
@@ -25,7 +25,7 @@
           s.create_time "seckill.create_time"
         from success_killed sk
         inner join seckill s on sk.seckill_id = s.seckill_id
-        where sk.seckill_id = #{seckillId}
+        where sk.seckill_id = #{seckillId} and sk.user_phone = #{userPhone}
     </select>
 
 </mapper>
