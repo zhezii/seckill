@@ -65,13 +65,13 @@ public class SeckillController {
             log.error(e.getMessage(), e);
             result = new SeckillResult<>(false, e.getMessage());
         }
-
+        System.out.println(result+"123465");
         return result;
     }
 
     @RequestMapping(value = "/{seckillId}/{md5}/excution",
             method = RequestMethod.POST,
-            produces = {"applicaiont/json;charset=UTF8"})
+            produces = {"application/json;charset=UTF8"})
     @ResponseBody
     public SeckillResult<SeckillExecution> excute(@PathVariable("seckillId") Long seckillId,
                                                   @PathVariable("md5") String md5,
@@ -86,14 +86,14 @@ public class SeckillController {
             return new SeckillResult<>(true, seckillExecution);
         } catch (RepeatKillException e) {
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.REPEAT_KILL);
-            return new SeckillResult<>(false, execution);
+            return new SeckillResult<>(true, execution);
         }catch (SeckillCloseeException e) {
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.END);
-            return new SeckillResult<>(false, execution);
+            return new SeckillResult<>(true, execution);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.INNER_ERROR);
-            return new SeckillResult<>(false, execution);
+            return new SeckillResult<>(true, execution);
         }
     }
 
