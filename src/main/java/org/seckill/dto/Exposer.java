@@ -11,7 +11,7 @@ import lombok.Data;
 public class Exposer {
 
     //是否暴露接口地址
-    private boolean isExpose;
+    private boolean exposed;
 
     //加密措施
     private String md5;
@@ -27,19 +27,19 @@ public class Exposer {
     //结束时间
     private long end;
 
-    public Exposer(boolean isExpose, long seckillId) {
-        this.isExpose = isExpose;
+    public Exposer(boolean exposed, long seckillId) {
+        this.exposed = exposed;
         this.seckillId = seckillId;
     }
 
-    public Exposer(boolean isExpose, String md5, long seckillId) {
-        this.isExpose = isExpose;
+    public Exposer(boolean exposed, String md5, long seckillId) {
+        this.exposed = exposed;
         this.md5 = md5;
         this.seckillId = seckillId;
     }
 
-    public Exposer(boolean isExpose,long seckillId, long now, long start, long end) {
-        this.isExpose = isExpose;
+    public Exposer(boolean exposed,long seckillId, long now, long start, long end) {
+        this.exposed = exposed;
         this.now = now;
         this.start = start;
         this.end = end;
