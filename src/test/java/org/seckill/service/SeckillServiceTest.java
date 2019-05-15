@@ -44,7 +44,7 @@ public class SeckillServiceTest {
     @Test
     public void testSeckillLogic() {
         Exposer exposer = seckillService.exportSeckillUrl(1000L);
-        if (exposer.isExpose()) {
+        if (exposer.isExposed()) {
             try {
                 SeckillExecution seckillExecution = seckillService.executeSeckill(1000L, 17638167592L, exposer.getMd5());
                 log.info("seckillExecution={}" + seckillExecution);
